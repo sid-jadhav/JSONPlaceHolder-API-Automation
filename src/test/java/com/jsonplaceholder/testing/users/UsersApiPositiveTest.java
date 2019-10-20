@@ -1,6 +1,7 @@
 package com.jsonplaceholder.testing.users;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,10 +20,17 @@ public class UsersApiPositiveTest extends BaseTest{
 	@Test
 	public void testUniqueRecordPresentForUserNameSamantha() {
 		users.getResponseByUserName("Samantha");
-		List<Integer> userId =users.getListOfFieldInResponse("id");
+		List<Integer> userIdList =users.getListOfValuesOfIDInResponse();
 		assertAll(
-				() -> assertFalse( 0 == userId.size(),"User Named Samantha Does Not exists"),
-				() -> assertTrue(1 == userId.size(),"Multiple Records found for user name Samantha")
+				() -> assertFalse( 0 == userIdList.size(),"User Named Samantha Does Not exists"),
+				() -> assertTrue(1 == userIdList.size(),"Multiple Records found for user name Samantha")
 				);
+	}
+	
+	@Test
+	public void testGetByUserNameFunctionalityOfUsersAPI() {
+		users.getResponseByUserName("Samantha");
+		List<String> userNameList =users.getListOfValuesOfUserNameInResponse();
+		userNameList.stream().forEach(userName -> assertEquals(userName,"Samantha"));
 	}
 }

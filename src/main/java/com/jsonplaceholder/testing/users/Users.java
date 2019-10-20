@@ -39,8 +39,12 @@ public class Users extends RestTemplateUtil{
 		return response;
 	}
 	
-	public List<Integer> getListOfFieldInResponse(String fieldName) {
-		return response.jsonPath().getList(fieldName);
+	public List<Integer> getListOfValuesOfIDInResponse() {
+		return response.jsonPath().getList(USER_ID);
+	}
+	
+	public List<String> getListOfValuesOfUserNameInResponse() {
+		return response.jsonPath().getList(USER_NAME);
 	}
 }
 
