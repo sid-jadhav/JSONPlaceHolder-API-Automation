@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +15,7 @@ import io.restassured.response.Response;
 @Component
 public class Users extends RestTemplateUtil{
 	
+	protected static Logger LOG = Logger.getLogger(Users.class);
 	
 	@Value("${users}")
 	private String ENDPOINT;
@@ -31,14 +33,14 @@ public class Users extends RestTemplateUtil{
 	public Response getResponseByUserName(String name) {
 		Map<String, String> param = new HashMap<String, String>();
 		param.put(USER_NAME, name);
+		LOG.info("Executing GET request to Users API with " +USER_NAME+"="+ name);
 		response = executeGet(ENDPOINT, param);
-		System.out.println(response.body().asString());
+		LOG.info("Response of Users API: "+ response.asString());
 		return response;
 	}
 	
 	public List<Integer> getListOfFieldInResponse(String fieldName) {
 		return response.jsonPath().getList(fieldName);
 	}
-
 }
 
