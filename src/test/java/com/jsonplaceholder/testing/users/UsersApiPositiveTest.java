@@ -8,10 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import com.jsonplaceholder.testing.BaseTest;
 
+@Tag("Users")
 public class UsersApiPositiveTest extends BaseTest{
 	
 	private Users users;
