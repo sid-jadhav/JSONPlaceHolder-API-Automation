@@ -35,7 +35,7 @@ public class PostsApiPositiveTest extends BaseTest{
 	@Test
 	public void testPostFunctionalityOfPostsAPI() {
 		JSONObject request= jsonReader.parseJson("posts");
-		posts.postRequest(request).then().assertThat().statusCode(200);
+		posts.postRequest(request).then().assertThat().statusCode(201);
 	}
 
 }
