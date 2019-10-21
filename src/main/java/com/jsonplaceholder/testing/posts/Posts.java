@@ -12,6 +12,7 @@ import com.jsonplaceholder.testing.api.RestTemplateUtil;
 import com.jsonplaceholder.testing.users.Users;
 
 import io.restassured.response.Response;
+import net.minidev.json.JSONObject;
 @Component
 public class Posts extends RestTemplateUtil{
 	
@@ -37,6 +38,21 @@ public class Posts extends RestTemplateUtil{
 		LOG.info("Executing GET request to Posts API with " +USER_ID+"="+ ID);
 		response = executeGet(ENDPOINT, param);
 		LOG.info("Response of Posts API: "+ response.asString());
+		return response;
+	}
+	
+	public Response getResponseByPostID(String ID) {
+
+		Map<String, String> param = new HashMap<String, String>();
+		param.put(POST_ID, ID);
+		LOG.info("Executing GET request to Posts API with " +POST_ID+"="+ ID);
+		response = executeGet(ENDPOINT, param);
+		LOG.info("Response of Posts API: "+ response.asString());
+		return response;
+	}
+
+	public Response postRequest(JSONObject request) {
+		response = executePost(ENDPOINT, request);
 		return response;
 	}
 	
