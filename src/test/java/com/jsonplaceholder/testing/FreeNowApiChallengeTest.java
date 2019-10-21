@@ -3,15 +3,9 @@ package com.jsonplaceholder.testing;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.assertj.core.api.SoftAssertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
-import com.jsonplaceholder.testing.comments.Comments;
-import com.jsonplaceholder.testing.posts.Posts;
-import com.jsonplaceholder.testing.users.Users;
 
 @Tag("FreeNowApiChallenge")
 public class FreeNowApiChallengeTest extends BaseTest{
@@ -19,7 +13,6 @@ public class FreeNowApiChallengeTest extends BaseTest{
 protected static Logger LOG = Logger.getLogger(FreeNowApiChallengeTest.class);
 	
 	@Test
-	@Tag("sid")
 	@DisplayName("Validate the format of Emails in comments section for all posts of a user")
 	public void testValidateFormatOfEmailsInCommentsSectionForAllPostsOfAUser() {
 		users.getResponseByUserName("Samantha");
