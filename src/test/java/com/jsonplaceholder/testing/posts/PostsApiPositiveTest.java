@@ -33,6 +33,13 @@ public class PostsApiPositiveTest extends BaseTest{
 	}
 	
 	@Test
+	public void testGetByPostIDReturnsUniqueRecordOfPostsAPI() {
+		posts.getResponseByPostID("1").then().assertThat().statusCode(200);
+		List<Integer> userIdList =posts.getListOfValuesOfPostIDInResponse();
+		assertEquals(1,userIdList.size());
+	}
+	
+	@Test
 	public void testPostFunctionalityOfPostsAPI() {
 		JSONObject request= jsonReader.parseJson("posts");
 		posts.postRequest(request).then().assertThat().statusCode(201);
