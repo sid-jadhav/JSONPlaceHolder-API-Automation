@@ -7,15 +7,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jsonplaceholder.testing.BaseTest;
 
 public class UsersApiPositiveTest extends BaseTest{
 	
-	@Autowired
 	private Users users;
+	
+	@BeforeAll
+	public void beforeAll() {
+		users = new Users();
+	}
 	
 	@Test
 	public void testUniqueRecordPresentForUserNameSamantha() {

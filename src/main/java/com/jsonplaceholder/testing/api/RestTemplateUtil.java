@@ -5,15 +5,12 @@ import static io.restassured.RestAssured.given;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Value;
-
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class RestTemplateUtil {
 	
-	@Value("${base.uri}")
-	String baseURI;
+	String baseURI = "https://jsonplaceholder.typicode.com/";
 	
 	protected Response executeGet(String endpoint, Map<String, String> params) {
 		
