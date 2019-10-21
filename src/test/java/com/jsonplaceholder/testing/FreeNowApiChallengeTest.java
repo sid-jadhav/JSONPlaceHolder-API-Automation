@@ -18,27 +18,12 @@ public class FreeNowApiChallengeTest extends BaseTest{
 	
 protected static Logger LOG = Logger.getLogger(FreeNowApiChallengeTest.class);
 	
-	private Users user;
-	
-	private Posts posts;
-	
-	private Comments comments;
-	
-	SoftAssertions softAssert;
-	
-	@BeforeAll
-	public void beforeAll() {
-		softAssert = new SoftAssertions();
-		comments = new Comments();
-		user = new Users();
-		posts = new Posts();
-	}
-	
 	@Test
+	@Tag("sid")
 	@DisplayName("Validate the format of Emails in comments section for all posts of a user")
 	public void testValidateFormatOfEmailsInCommentsSectionForAllPostsOfAUser() {
-		user.getResponseByUserName("Samantha");
-		List<Integer> userIdList= user.getListOfValuesOfIDInResponse();
+		users.getResponseByUserName("Samantha");
+		List<Integer> userIdList= users.getListOfValuesOfIDInResponse();
 		for(Integer userId: userIdList) {
 			posts.getResponseByUserID(userId.toString());
 			List<Integer> postIdList = posts.getListOfValuesOfUserIDInResponse();
