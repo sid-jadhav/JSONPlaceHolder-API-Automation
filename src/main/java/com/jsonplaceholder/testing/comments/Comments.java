@@ -44,8 +44,7 @@ public class Comments extends RestTemplateUtil{
 	}
 	
 	public boolean isValid(String email) {
-		String regEx = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-        return email.matches(regEx);
+		return ComparatorUtil.regexMatcher(email, "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
 	}
 	
 }
