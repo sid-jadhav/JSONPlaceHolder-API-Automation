@@ -6,24 +6,22 @@ import org.apache.log4j.Logger;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jsonplaceholder.testing.comments.Comments;
 import com.jsonplaceholder.testing.posts.Posts;
 import com.jsonplaceholder.testing.users.Users;
 
+@Tag("FreeNowApiChallenge")
 public class FreeNowApiChallengeTest extends BaseTest{
 	
 protected static Logger LOG = Logger.getLogger(FreeNowApiChallengeTest.class);
 	
-	@Autowired
 	private Users user;
 	
-	@Autowired
 	private Posts posts;
 	
-	@Autowired
 	private Comments comments;
 	
 	SoftAssertions softAssert;
@@ -31,6 +29,9 @@ protected static Logger LOG = Logger.getLogger(FreeNowApiChallengeTest.class);
 	@BeforeAll
 	public void beforeAll() {
 		softAssert = new SoftAssertions();
+		comments = new Comments();
+		user = new Users();
+		posts = new Posts();
 	}
 	
 	@Test

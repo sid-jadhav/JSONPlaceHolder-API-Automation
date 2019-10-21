@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.jsonplaceholder.testing.api.RestTemplateUtil;
@@ -17,8 +16,7 @@ public class Users extends RestTemplateUtil{
 	
 	protected static Logger LOG = Logger.getLogger(Users.class);
 	
-	@Value("${users}")
-	private String ENDPOINT;
+	private String ENDPOINT= "users/";
 	
 	private static final String USER_ID= "id";
 	

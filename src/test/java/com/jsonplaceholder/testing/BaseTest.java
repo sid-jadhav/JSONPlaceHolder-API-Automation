@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.jsonplaceholder.testing.configuration.ApiApplicationConfig;
+import com.jsonplaceholder.testing.utils.JsonFileReader;
 
 @Tag("All")
 @ContextConfiguration(classes = {ApiApplicationConfig.class})
@@ -15,4 +16,6 @@ import com.jsonplaceholder.testing.configuration.ApiApplicationConfig;
 @TestInstance(Lifecycle.PER_CLASS)
 public class BaseTest {
 
+	protected JsonFileReader jsonReader;
+	
 }

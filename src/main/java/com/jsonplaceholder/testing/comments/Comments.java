@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.jsonplaceholder.testing.api.RestTemplateUtil;
@@ -18,8 +17,7 @@ public class Comments extends RestTemplateUtil{
 	
 	protected static Logger LOG = Logger.getLogger(Comments.class);
 	
-	@Value("${comments}")
-	private String ENDPOINT;
+	private String ENDPOINT="comments/";
 	
 	private static final String POST_ID= "postId";
 	
