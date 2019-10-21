@@ -25,7 +25,7 @@ public class UsersApiPositiveTest extends BaseTest{
 	
 	@Test
 	public void testUniqueRecordPresentForUserNameSamantha() {
-		users.getResponseByUserName("Samantha");
+		users.getResponseByUserName("Samantha").then().assertThat().statusCode(200);
 		List<Integer> userIdList =users.getListOfValuesOfIDInResponse();
 		assertAll(
 				() -> assertFalse( 0 == userIdList.size(),"User Named Samantha Does Not exists"),
@@ -35,7 +35,7 @@ public class UsersApiPositiveTest extends BaseTest{
 	
 	@Test
 	public void testGetByUserNameFunctionalityOfUsersAPI() {
-		users.getResponseByUserName("Samantha");
+		users.getResponseByUserName("Samantha").then().assertThat().statusCode(200);
 		List<String> userNameList =users.getListOfValuesOfUserNameInResponse();
 		userNameList.stream().forEach(userName -> assertEquals(userName,"Samantha"));
 	}
